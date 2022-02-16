@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         prod_total = findViewById(R.id.total);
         numPick = findViewById(R.id.num_picker);
         prod_list_view = findViewById(R.id.prod_list);
+
         manager_btn = findViewById(R.id.manager_btn);
         buy_btn = findViewById(R.id.buy_btn);
 
@@ -102,9 +103,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         switch (id) {
             case R.id.buy_btn:
-                if (prod_type.getText().toString().isEmpty() || prod_qty.getText().toString() == "0")
+                if (prod_type.getText().toString().isEmpty() || prod_qty.getText().toString().equals("0"))
                     Toast.makeText(this.getApplicationContext(), "All fields are required!!", Toast.LENGTH_SHORT).show();
-                else if (numPick.getValue() > product.getQty());
+                else if (numPick.getValue() > product.getQty()) Toast.makeText(this.getApplicationContext(), "No enough quantity in the stock!!!", Toast.LENGTH_SHORT).show();
                 else {
                     product.setName(prod_type.getText().toString());
                     product.setQty(product.getQty() - Integer.parseInt(prod_qty.getText().toString()));

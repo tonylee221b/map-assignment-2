@@ -48,7 +48,7 @@ public class RestockPage extends AppCompatActivity implements View.OnClickListen
 
         switch (id) {
             case R.id.ok_btn:
-                if (product.getName().isEmpty() || enter.getText().toString().isEmpty())
+                if (enter.getText().toString().equals(""))
                     Toast.makeText(this, "All fields are REQUIRED", Toast.LENGTH_SHORT).show();
                 else {
                     product.setQty(product.getQty() + Integer.parseInt(enter.getText().toString()));
